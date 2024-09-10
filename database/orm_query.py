@@ -81,7 +81,7 @@ async def orm_delete_product(session: AsyncSession, product_id: int):
 
 async def orm_add_banner_description(session: AsyncSession, data: dict):
     #Добавляем новый или изменяем существующий по именам
-    #пунктов меню: main, about, cart, shipping, payment, catalog
+    #пунктов меню: main, cart,catalog
     query = select(Banner)
     result = await session.execute(query)
     if result.first():

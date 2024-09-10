@@ -8,8 +8,8 @@ from filters.chat_types import ChatTypeFilter
 from filters.is_admin import IsAdminMsg
 from database.orm_query import orm_add_price, orm_get_prices, orm_delete_price, orm_add_document, orm_delete_document, \
     orm_get_documents
-from keyboards.inline.inline_add_product import get_callback_btns, get_inlineMix_btns
-from lexicon.lexicon import LEXICON_btn_main_admin_menu, LEXICON_btn_back_menu_links
+from bun_manager_bot.keyboards.inline.inline_btns import get_callback_btns, get_inlineMix_btns
+from lexicon.lexicon import LEXICON_btn_main_admin_menu
 
 admin_add_document_price_router = Router()
 admin_add_document_price_router.message.filter(ChatTypeFilter(['private']), IsAdminMsg())

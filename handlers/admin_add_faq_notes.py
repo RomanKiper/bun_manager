@@ -8,7 +8,7 @@ from filters.chat_types import ChatTypeFilter
 from filters.is_admin import IsAdminMsg
 from database.orm_query import orm_delete_faq, orm_get_faq, orm_add_faq, orm_get_faqs, orm_get_note, orm_delete_note, \
     orm_add_note, orm_get_notes
-from keyboards.inline.inline_add_product import get_callback_btns, get_callback_btns_extra_btn
+from bun_manager_bot.keyboards.inline.inline_btns import get_callback_btns, get_callback_btns_extra_btn
 from lexicon.lexicon import LEXICON_btn_main_admin_menu
 
 admin_faq_router = Router()

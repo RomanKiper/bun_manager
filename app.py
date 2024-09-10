@@ -11,8 +11,8 @@ from database.engine import create_db, drop_db, session_maker
 from lexicon.lexicon_for_db import categories, description_for_info_pages
 
 
+
 from handlers.user_private import user_private_router
-from handlers.price_statistic.advert_site import user_advert_router
 from handlers.user_group import user_group_router
 from handlers.admin_add_product import admin_router
 from handlers.admin_make_offer import admin_offer_router
@@ -21,7 +21,6 @@ from handlers.admin_add_price_document import admin_add_document_price_router
 from keyboards.main_menu import set_main_menu
 from middlewares.db import DataBaseSession
 
-# ALLOWED_UPDATES = ['message', 'edited_message', 'callback_query']
 
 logger = logging.getLogger(__name__)
 
@@ -31,7 +30,7 @@ bot = Bot(token=config.tg_bot.token, parse_mode="HTML")
 dp = Dispatcher()
 
 dp.include_router(user_private_router)
-dp.include_router(user_advert_router)
+
 dp.include_router(admin_router)
 dp.include_router(admin_offer_router)
 dp.include_router(admin_faq_router)

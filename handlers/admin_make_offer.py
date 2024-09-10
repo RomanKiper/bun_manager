@@ -13,7 +13,7 @@ from filters.is_admin import IsAdminMsg
 from database.orm_query import orm_add_user, orm_add_to_cart, orm_get_user_carts, orm_delete_all_carts, orm_get_offers,\
     orm_get_offers_id, orm_delete_offer, orm_get_product, orm_get_products_in_offer
 from handlers.menu_processing import get_menu_content
-from keyboards.inline.inline_add_product import get_callback_btns
+from bun_manager_bot.keyboards.inline.inline_btns import get_callback_btns
 from keyboards.inline.inline_offer import MenuCallBack
 
 

@@ -11,8 +11,9 @@ from filters.is_admin import IsAdminMsg
 from database.orm_query import orm_add_product, orm_get_products, orm_delete_product, \
     orm_update_product, orm_get_product, orm_get_categories, orm_change_banner_image, orm_get_info_pages, \
     orm_increment_handler_counter
-from keyboards.inline.inline_add_product import get_callback_btns, get_inlineMix_btns
-from lexicon.lexicon import LEXICON_btn_main_admin_menu, LEXICON_RU, LEXICON_btn_back_menu_links
+from bun_manager_bot.keyboards.inline.inline_btns import get_callback_btns, get_inlineMix_btns
+from bun_manager_bot.lexicon.lexicon import LEXICON_RU, LEXICON_btn_main_admin_menu
+
 
 admin_router = Router()
 admin_router.message.filter(ChatTypeFilter(['private']), IsAdminMsg())
@@ -113,11 +114,11 @@ async def admin_handler(message_or_callback: types.Union[types.Message, Callback
                                             first_name=message.from_user.first_name,
                                             last_name=message.from_user.last_name,
                                             )
-        await message.answer(text=LEXICON_RU["/admin+panel"], reply_markup=get_callback_btns(btns=LEXICON_btn_main_admin_menu, sizes=(2,)))
+        await message.answer(text=LEXICON_RU["/admin+panel"], reply_markup=get_callback_btns(btns=LEXICON_btn_main_admin_menu, sizes=(1,2,)))
     elif isinstance(message_or_callback, CallbackQuery):
         # Если это колбэк-запрос
         callback_query = message_or_callback
-        await callback_query.message.answer(text=LEXICON_RU["/admin+panel"], reply_markup=get_callback_btns(btns=LEXICON_btn_main_admin_menu, sizes=(2,)))
+        await callback_query.message.answer(text=LEXICON_RU["/admin+panel"], reply_markup=get_callback_btns(btns=LEXICON_btn_main_admin_menu, sizes=(1,2,)))
 
 
 @admin_router.callback_query(F.data == 'products_list')
